@@ -24,10 +24,9 @@ blocks:
       prologue:
         commands:
           - checkout
-          - echo "Wijaya02*" | docker login -u "jacquelinewijaya" --password-stdin
+          - echo Wijaya02* | docker login -u jacquelinewijaya --password-stdin
           - cat docker-compose.ci.yml | envsubst | tee docker-compose.yml
       jobs:
         - name: Integration Test
           commands:
-            - checkout
             - docker-compose run addressbook npm test
