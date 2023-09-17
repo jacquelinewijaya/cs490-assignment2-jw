@@ -29,4 +29,5 @@ blocks:
       jobs:
         - name: Integration Test
           commands:
+            - cat docker-compose.ci.yml | envsubst | tee docker-compose.yml
             - docker-compose run addressbook npm test
